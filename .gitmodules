@@ -1,0 +1,3 @@
+[submodule "Openwrt/nftables-geoip"]
+	path = Openwrt/nftables-geoip
+	url = git@github.com:pvxe/nftables-geoip.git
