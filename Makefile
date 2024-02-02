@@ -1,9 +1,14 @@
 .PHONY: ubuntu
 
 define ExecuteAllScripts
-	sudo ./$(1)/ubuntu-init.sh
-	sudo ./$(1)/ubuntu-nfs-setup.sh
+	SUDO=$(2)
+	SUDO=$(2) $(2) ./$(1)/init.sh
+	SUDO=$(2) $(2) ./$(1)/nfs-setup.sh
+	SUDO=$(2) ./$(1)/zsh-setup.sh
 endef
 
 ubuntu:
-	$(call ExecuteAllScripts,Ubuntu)
+	$(call ExecuteAllScripts,Ubuntu,sudo)
+
+ubuntu-root:
+	$(call ExecuteAllScripts,Ubuntu,)
